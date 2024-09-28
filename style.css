@@ -1,0 +1,493 @@
+
+.navbar {
+    background-color: black;
+    padding: 10px; /* Ruang di dalam navbar */
+    width: 98.5%; /* Lebar penuh */
+    z-index: 1000; /* Pastikan di atas elemen lainnya */
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around; /* Ruang antar item */
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Lebar penuh untuk daftar */
+}
+
+.nav-list li {
+    margin: 0 10px; /* Ruang di antara item */
+}
+
+.nav-list a {
+    color: white; /* Warna teks */
+    text-decoration: none; /* Hapus garis bawah */
+    transition: color 0.3s, text-shadow 0.3s; /* Efek transisi saat hover */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Efek glow */
+    font-weight: bold; /* Teks menjadi bold */
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+.hero {
+    background: linear-gradient(to top, rgb(24, 0, 0), black); /* Gradiasi merah ke hitam */
+    height: 88vh;
+    display: flex;
+    justify-content: center; /* Pusatkan isi */
+    align-items: center; /* Pusatkan vertikal */
+    position: relative;
+    overflow: hidden;
+    padding: 20px; /* Ruang di tepi */
+}
+
+.text-container {
+    margin-right: 40px; /* Ruang di antara teks dan gambar */
+    text-align: left; /* Rata kiri untuk teks */
+    max-width: 900px; /* Batasi lebar teks */
+}
+
+.typing {
+    font-size: 3em; /* Ukuran font untuk teks baru */
+    white-space: nowrap; /* Mencegah teks terpotong */
+    overflow: hidden; /* Sembunyikan teks yang belum muncul */
+    animation: typing 2s steps(40, end) forwards, blink-caret 0.35s step-end infinite; /* Sesuaikan steps */
+    margin-top: 10px; /* Ruang di antara paragraf dan teks baru */
+}
+
+
+/* Animasi */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+
+
+.image-container {
+    position: relative;
+    margin-top: 20px; /* Jarak atas untuk ruang antara teks dan gambar */
+}
+
+.character {
+    width: 100%; /* Ukuran gambar responsif */
+    max-width: 400px; /* Ukuran maksimum untuk perangkat besar */
+    opacity: 1; /* Pastikan gambar terlihat */
+    animation: slideIn 1s forwards; /* Animasi slide */
+    
+    /* Mask untuk gradiasi bagian bawah */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
+
+    
+}
+
+
+@keyframes slideIn {
+    0% {
+        opacity: 0; /* Awal tidak terlihat */
+        transform: translateY(-20px); /* Mulai dari sedikit di atas */
+    }
+    100% {
+        opacity: 1; /* Akhirnya terlihat */
+        transform: translateY(0); /* Kembali ke posisi normal */
+    }
+}
+
+
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 0, 0, 0.6);
+    border-radius: 50%;
+    box-shadow: 0 30px 50px rgba(255, 0, 0, 0.5), 0 10px 30px rgba(255, 0, 0, 0.3);
+    transform: translate(-50%, -50%) translateY(20px);
+    opacity: 1;
+    animation: swipe 1s forwards, neonBlink 2s infinite; /* Animasi on/off */
+}
+
+/* Animasi swipe untuk lingkaran */
+@keyframes swipe {
+    0% {
+        transform: translate(-50%, -50%) translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animasi neon on/off */
+@keyframes neonBlink {
+    0%, 100% {
+        box-shadow: 0 -20px -40px rgba(255, 0, 0, 0.5), 0 150px 280px rgba(255, 0, 0, 0.3); /* Glow aktif */
+    }
+    50% {
+        box-shadow: 0 20px 40px rgba(255, 0, 0, 0), 0 10px 30px rgba(255, 0, 0, 0); /* Glow mati */
+    }
+}
+
+
+/* Animasi */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Media Query untuk Responsif */
+@media (max-width: 600px) {
+    .typing {
+        font-size: 1.5em; /* Ukuran font lebih kecil pada perangkat kecil */
+    }
+    .circle {
+        width: 200px; /* Ukuran lingkaran lebih kecil */
+        height: 200px; /* Ukuran lingkaran lebih kecil */
+    }
+}
+
+
+/* Media Query untuk Responsif */
+@media (max-width: 600px) {
+    .hero {
+        flex-direction: column; /* Ubah arah menjadi kolom di perangkat kecil */
+        align-items: center; /* Pusatkan elemen */
+    }
+    
+    .text-container {
+        margin-right: 0; /* Hapus margin di perangkat kecil */
+        text-align: center; /* Rata tengah untuk teks */
+        margin-bottom: 20px; /* Ruang antara teks dan gambar */
+    }
+
+    .character {
+        width: 80%; /* Ukuran responsif untuk gambar */
+        max-width: 300px; /* Ukuran maksimum */
+    }
+
+    .circle {
+        width: 200px; /* Ukuran lingkaran lebih kecil */
+        height: 200px; /* Ukuran lingkaran lebih kecil */
+        transform: translate(-50%, -50%) translateY(10px); /* Pindahkan ke bawah sedikit */
+    }
+
+    
+}
+
+/* Price page container */
+.price-page {
+    padding: 20px;
+    text-align: center;
+    background-color: black;
+}
+
+/* Title for the price page */
+.price-page-title {
+    color: white;
+    background-color: black;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white; /* Warna teks */
+    text-decoration: none; /* Hapus garis bawah */
+    transition: color 0.3s, text-shadow 0.3s; /* Efek transisi saat hover */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Efek glow */
+    font-weight: bold; /* Teks menjadi bold */
+}
+
+/* Container for the price boxes */
+.price-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* Individual price boxes */
+.price-box {
+    background-color: black;
+    width: 30%;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0); /* Initial no glow */
+    transition: box-shadow 0.5s; /* Smooth on/off glow effect */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Ensure the title stretches to match the box width */
+    color: white;
+    overflow: hidden; /* Ensure no content exceeds the box */
+}
+
+/* Title inside each price box with gradient background */
+.box-title {
+    background: linear-gradient(to bottom, red, darkred);
+    color: white;
+    padding: 15px;
+    width: 100%; /* Ensures the title takes up the full width of the box */
+    text-align: center;
+    box-sizing: border-box; /* Ensures padding is counted within the width */
+    margin: 0; /* Remove margin to avoid extra space */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Description text inside each price box */
+.box-description {
+    padding: 15px;
+    font-size: 1em;
+    color: lightgray;
+    text-align: center; /* Center text */
+}
+
+/* Price text, bold and prominent */
+.box-price {
+    text-align: center;
+    color: white; /* Warna teks */
+    text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red; /* Efek glow */
+    animation: glow 1s infinite alternate; /* Menggunakan animasi */
+    font-weight: bold;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red; /* Efek awal */
+    }
+    100% {
+        text-shadow: 0 0 20px red, 0 0 30px red, 0 0 40px red; /* Efek akhir */
+    }
+}
+
+
+/* Button inside each price box */
+.learn-more-button {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+    font-size: 1.1em;
+    width: 100%; /* Full width for mobile */
+    max-width: 200px; /* Limit width */
+    margin: 0 auto 20px; /* Center the button and add margin */
+    text-decoration: none; /* Ensure link does not have underline */
+}
+
+/* Hover effect for the learn more button */
+.learn-more-button:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
+
+/* On hover, the price box glows red */
+.price-box:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1); /* Red glow */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .price-box {
+        width: 100%; /* Full width for smaller devices */
+    }
+    
+    .learn-more-button {
+        font-size: 1em; /* Adjust font size for mobile */
+        padding: 10px 15px; /* Adjust padding for mobile */
+        width: 90%; /* Button takes most of the width on mobile */
+    }
+}
+
+
+
+.projects {
+    background: linear-gradient(to bottom, rgb(24, 0, 0), black); /* Gradiasi merah ke hitam */
+    padding: 40px 20px; /* Ruang di dalam section */
+    color: white; /* Warna teks */
+}
+
+.Example {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 50px;
+    color: white; /* Warna teks */
+    text-decoration: none; /* Hapus garis bawah */
+    transition: color 0.3s, text-shadow 0.3s; /* Efek transisi saat hover */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Efek glow */
+    font-weight: bold; /* Teks menjadi bold */
+
+}
+
+.iru {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white; /* Warna teks */
+    text-decoration: none; /* Hapus garis bawah */
+    transition: color 0.3s, text-shadow 0.3s; /* Efek transisi saat hover */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Efek glow */
+    font-weight: bold; /* Teks menjadi bold */
+}
+
+.xane {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white; /* Warna teks */
+    text-decoration: none; /* Hapus garis bawah */
+    transition: color 0.3s, text-shadow 0.3s; /* Efek transisi saat hover */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Efek glow */
+    font-weight: bold; /* Teks menjadi bold */
+}
+
+.rex {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white; /* Warna teks */
+    text-decoration: none; /* Hapus garis bawah */
+    transition: color 0.3s, text-shadow 0.3s; /* Efek transisi saat hover */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Efek glow */
+    font-weight: bold; /* Teks menjadi bold */
+}
+
+.projects-container {
+    display: flex; /* Tampilkan item dalam baris */
+    justify-content: space-between; /* Ruang antar item */
+    align-items: center; /* Pusatkan vertikal */
+    max-width: 1200px; /* Batasi lebar maksimum */
+    margin: auto; /* Pusatkan konten */
+    margin-bottom: 40px; /* Ruang bawah antara proyek */
+}
+
+.project-item {
+    flex: 1; /* Setiap item mengambil ruang yang sama */
+    margin: 0 10px; /* Ruang di antara item */
+    text-align: center; /* Rata tengah untuk teks */
+}
+
+.project-image {
+    width: 50%; /* Mengisi lebar item */
+    height: auto; /* Tinggi otomatis */
+    border: 5px solid white; /* Border putih */
+    border-radius: 10px; /* Sudut melengkung */
+    transition: transform 0.3s; /* Animasi saat hover */
+}
+
+.project-image:hover {
+    transform: scale(1.05); /* Perbesar gambar saat hover */
+}
+
+/* Media Query untuk Responsif */
+@media (max-width: 600px) {
+    .projects-container {
+        flex-direction: column; /* Ubah menjadi kolom di perangkat kecil */
+    }
+
+    .project-item {
+        margin-bottom: 20px; /* Ruang di bawah item */
+    }
+
+    .project-image {
+        width: 80%; /* Ukuran responsif untuk gambar */
+        max-width: 300px; /* Ukuran maksimum */
+    }
+}
+
+
+.contact {
+    background: linear-gradient(to top, rgb(24, 0, 0), black); /* Gradiasi merah ke hitam */
+    padding: 40px 20px; /* Ruang di dalam section */
+    text-align: center; /* Rata tengah untuk teks */
+    color: white; /* Warna teks */
+}
+
+.kontak {
+    color: white; /* Warna teks */
+    text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red; /* Efek glow */
+    animation: glow 1s infinite alternate; /* Menggunakan animasi */
+    font-weight: bold;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red; /* Efek awal */
+    }
+    100% {
+        text-shadow: 0 0 20px red, 0 0 30px red, 0 0 40px red; /* Efek akhir */
+    }
+}
+
+.kontaks {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white; /* Warna teks */
+    text-decoration: none; /* Hapus garis bawah */
+    transition: color 0.3s, text-shadow 0.3s; /* Efek transisi saat hover */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Efek glow */
+    font-weight: bold; /* Teks menjadi bold */
+}
+
+.button-container {
+    display: flex; /* Tampilkan tombol dalam baris */
+    justify-content: center; /* Pusatkan tombol */
+    flex-wrap: wrap; /* Biarkan tombol membungkus jika terlalu lebar */
+    margin-top: 20px; /* Ruang di atas tombol */
+}
+
+.contact-button {
+    background: linear-gradient(to bottom, red, darkred);
+    color: white; /* Warna teks putih */
+    padding: 15px 30px; /* Ruang di dalam tombol */
+    margin: 10px; /* Ruang di antara tombol */
+    border: none; /* Hapus border */
+    border-radius: 5px; /* Sudut melengkung */
+    text-decoration: none; /* Hapus garis bawah */
+    font-size: 1.2em; /* Ukuran font */
+    transition: box-shadow 0.3s; /* Efek transisi saat hover */
+    text-align: center; /* Rata tengah teks */
+}
+
+.contact-button:hover {
+    box-shadow: 0 0 15px red; /* Efek glow saat hover */
+}
+
+/* Media Query untuk Responsif */
+@media (max-width: 600px) {
+    .contact-button {
+        padding: 10px 20px; /* Ukuran tombol lebih kecil di perangkat kecil */
+        font-size: 1em; /* Ukuran font lebih kecil */
+    }
+}
+
+
